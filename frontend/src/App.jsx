@@ -16,7 +16,7 @@ import {
 import { TrendingUp, Activity, ShieldAlert, DollarSign, SlidersHorizontal, PlayCircle, UploadCloud, Code2, Save, Trash2 } from 'lucide-react';
 import './style.css';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 const SAVED_PRESETS_KEY = 'xauusd_saved_custom_presets_v1';
 
 const money = (v) =>
@@ -490,7 +490,7 @@ function App() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`${API}/strategies`).then((r) => r.json()).then(setStrategies).catch(() => setError('Backend is not reachable. Start FastAPI on port 8000.'));
+    fetch(`${API}/strategies`).then((r) => r.json()).then(setStrategies).catch(() => setError('Backend is not reachable. Check VITE_API_URL in Vercel or start FastAPI locally on port 8000.'));
   }, []);
 
   useEffect(() => {
