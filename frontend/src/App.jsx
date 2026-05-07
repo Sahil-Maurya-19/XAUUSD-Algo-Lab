@@ -16,7 +16,7 @@ import {
 import { TrendingUp, Activity, ShieldAlert, DollarSign, SlidersHorizontal, PlayCircle, UploadCloud, Code2, Save, Trash2 } from 'lucide-react';
 import './style.css';
 
-const API = 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL;
 const SAVED_PRESETS_KEY = 'xauusd_saved_custom_presets_v1';
 
 const money = (v) =>
